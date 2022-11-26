@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/shivam/Aerial/MiniProject/first_ros_packegies/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/shivam/Aerial/MiniProject/first_ros_packegies/src/husky_pos_vel/include/**",
+        "/home/shivam/Aerial/assignment1_ros/src/ros-assignment-1-Shivam067/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

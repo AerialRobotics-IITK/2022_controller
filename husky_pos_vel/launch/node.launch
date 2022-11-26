@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="world_name" default="worlds/empty.world"/>
+  <arg name="x" default="-1"/>
+  <arg name="y" default="-1"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+  </include>
+
+
+  <node name="ref_pos" pkg="husky_pos_vel" type="ref_pos" output="screen">
+    <param name="x" value="$(arg x)"/>
+    <param name="y" value="$(arg y)"/>
+  </node>
+
+  <node name="prop_control" pkg="husky_pos_vel" type="prop_control" output="screen"/>
+  
+</launch>

@@ -16,14 +16,7 @@ uav_elevation_control
 
 ## Approach to Control Design
 
-> Replace this text and below.
-
-
-
-Mathematical modelling, understanding Transfer functions, need for controller. Explain all these and more here.
-This must be done by Pulak, Monkesh, Shivam and Devesh together.
-
-Make seperate folders for each problem statements, each folder name must match with the following topic names.
+In any system/plant, to maintain a certain target reference level we need a controller to feed necessary input into the actuator. Controllers work on a feedback loop which measures the deviation of true output with the expected output, and tries to maintain true output level close to the reference output level. The most common type of controller is the PID (Proportional-Derivative_Integral) controller. Transfer functions are functions typically in Laplace domain which relate input to output in a plant. They are representative of nature of a physical system.
 
 ---
 
@@ -31,17 +24,34 @@ Make seperate folders for each problem statements, each folder name must match w
 
 ### Capacitor Voltage Control
 
-> Replace this text and below.
+> Problem Statement:
 
-Explanation of what you did goes here, include the capacitor control problem statement here, explaining both
-the problem and how you approached it. This should be done by **Monkesh**.
+Write a code to maintain a specific potential difference across a Capacitor.
+
+> Approch:
+
+The potential difference drops across the capacitor exponentially. We can increase the potential difference linearly only to maintain the specific value.
+
+Once the potential difference starts increasing or decreasing, it cannot stop until a specific time, even if it crosses the required limit.
+
+Approach : We keep the track of a time variable to check the status of our capacitor at each time interval. We also see if the time limit(for which the capacitor can not shift between charging and discharging state) if reached or not.
+
+Then we write the code for two cases -
+
+ 1) When the voltage difference is less than the required value, and we need to charge the capacitor.
+ 2) When the voltage difference is more than the required valuen and we need to discharge the capacitor.
 
 ### Simplified Inverted Pendulum Control
 
-> Replace this text and below.
+> Problem Statement:
 
-Explanation of what you did goes here, include the Problem statement of Inverted Pendulum here, explaining both
-the problem and how you approached it. This should be done by **Pulak**.
+To derive transfer function of a simplified model of an Inverted Pendulum, and implement a block diagram of the same in Simulink. In an Inverted Pendulum, the goal is to maintain the pendulum at a certain position, which is often an unstable equilibrium. To keep the pendulum stable at the position, we must implement a controller which modulates the current input according to our needs.
+
+> Aprroch:
+
+We formulated a mathematical model to represent the dynamics of the Inverted Pendulum. Using this model, we derived the differential equation and subsequently the transfer function.
+τ(s) = 1/(s^2 + k)
+where k is a constant depending on the mass, length and torque constant of the motor
 
 ### UAV Elevation Control
 >Problem Statement:
